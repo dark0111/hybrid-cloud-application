@@ -1,0 +1,31 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>webProfile-7.0</feature>
+        <feature>apiDiscovery-1.0</feature>
+	<feature>jndi-1.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <keyStore id="defaultKeyStore" password="Liberty"/>
+  
+	<basicRegistry id="basic">
+		<user name="admin" password="admin"/>
+	</basicRegistry>
+
+	<jndiEntry jndiName="weather_user" value="c1daa098-010a-4dc0-91c8-3a29ca258acc" />
+	<jndiEntry jndiName="weather_password" value="fR8BovfLhM" />
+	<jndiEntry jndiName="dburl" value="http://211.109.179.19:5984/" />
+
+<application id="myWebApp" location="${server.config.dir}/apps/airlines.war" name="airlines" type="war">
+   <application-bnd>
+       <security-role name="Administrator">
+           <user name="admin"/>
+       </security-role>
+   </application-bnd>
+</application>
+
+</server>

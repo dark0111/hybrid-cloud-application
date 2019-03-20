@@ -1,0 +1,6 @@
+applications:
+- name: hybrid-cloud-application-yjh
+  memory: 512M
+  disk_quota: 1G
+  instances: 1
+  path: airline_app/apps/airlines.war
